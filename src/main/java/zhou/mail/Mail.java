@@ -9,10 +9,15 @@ import org.apache.commons.mail.SimpleEmail;
 
 public class Mail {
 	
-	private String mailHost = "smtp.qq.com";
+	private String mailHostQQ = "smtp.qq.com";
 	private int port = 465;
-	private String username = "252356262@qq.com";
-	private String password = "rrnekferszrgcbdi";       //首先开启QQ邮箱POP3/SMTP,得到密码校验码
+	private String usernameQQ = "252356262@qq.com";
+	private String passwordQQ = "hblxjjdlvhlybgfb";//"vziczvyqspcjcaae";       //首先开启QQ邮箱POP3/SMTP,得到密码校验码
+
+
+	private String mailHost163 = "smtp.163.com";
+	private String username163 = "zhouke_coder@163.com";
+	private String password163 = "zhouke0515";
 	
 	public void sendEmailWithAttachment() throws EmailException {
 		
@@ -25,9 +30,9 @@ public class Mail {
 
 		// Create the email message
 		MultiPartEmail email = new MultiPartEmail();
-		email.setHostName(mailHost);     //发送邮件的主机
+		email.setHostName(mailHostQQ);     //发送邮件的主机
 		email.setSmtpPort(465);               //端口，默认是465
-		email.setAuthenticator(new DefaultAuthenticator(username, password));         //用户名和密码
+		email.setAuthenticator(new DefaultAuthenticator(usernameQQ, passwordQQ));         //用户名和密码
 		email.setSSLOnConnect(true);          //
 		email.addTo("zhouke0515@gmail.com", "xiaojiu");   //接收人
 		email.setFrom("252356262@qq.com", "Me");
@@ -43,14 +48,14 @@ public class Mail {
 
 	public void sendTextEmail() throws EmailException {
 		Email email = new SimpleEmail();
-		email.setHostName(mailHost);
+		email.setHostName(mailHost163);
 		email.setSmtpPort(port);
-		email.setAuthenticator(new DefaultAuthenticator(username, password));
+		email.setAuthenticator(new DefaultAuthenticator(username163, password163));
 		email.setSSLOnConnect(true);
-		email.setFrom("252356262@qq.com");
+		email.setFrom(username163);
 		email.setSubject("TestMail");
 		email.setMsg("This is a test mail ... :-)");
-		email.addTo("zhouke0515@gmail.com");
+		email.addTo(usernameQQ);
 		email.send();
 	}
 }

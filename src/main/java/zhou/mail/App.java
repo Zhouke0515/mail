@@ -10,7 +10,7 @@ public class App {
 	public static void main(String[] args) throws EmailException {
 		Mail mail = new Mail();
 		mail.sendTextEmail();
-		mail.sendEmailWithAttachment();
+		//mail.sendEmailWithAttachment();
 	}
 
 
