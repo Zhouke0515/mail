@@ -11,6 +11,8 @@ public class App {
 		Mail mail = new Mail();
 		mail.sendTextEmail();
 		//mail.sendEmailWithAttachment();
+		
+		mail.sendHtmlEmail();
 	}
 
 
